@@ -1,46 +1,61 @@
+import { CiLocationOn } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
-import {  Link } from "react-router-dom";
-
-const JobCards = ({allJobs}) => {
-
-  
-
+const JobCards = ({ allJobs }) => {
     return (
         <div>
-            <div className="row">
+            <div className="row mt-2">
                 {
-                    allJobs.map((job) => {
-                        return (
-                            <div className="col-md-4 mb-2" key={job.id}>
-                                <div className="card p-3 border-0 shadow-sm" key={job.id}>
-                                    <div className="d-flex justify-content-between fw-bold" >
-                                        <h5>{job.title}</h5>
-                                        <p className="text-danger">{job.discretion}</p>
-                                    </div>
-                                    <p className="text-primary fw-semibold">{job.title}</p>
-                                    <p>
-                                        {job.description.slice(0, 70)}...
-                                    </p>
+                    allJobs.map((job) => (
+                        <div className="col-md-4 mb-4" key={job.id}>
+                            <div className="card h-100 border-0 shadow-sm rounded-4 p-3">
 
-                                    <span className="border-bottom my-2" />
-                                    <div className="d-flex justify-content-between">
-                                        <p>View opportunity</p>
-                                        <Link className="btn btn-primary btn-small rounded-pill p-2"
-                                        to={`/jobs/${job.id}`}
-                                        >
-                                        More Details
+                                {/* Job Title + Type */}
+                                <div className="d-flex justify-content-between mb-2">
+                                    <h5 className="fw-bold mb-0 text-dark">
+                                        {job.jobTitle}
+                                    </h5>
 
-                                        </Link>
-                                    </div>
-
-
+                                    <span className="fw-bold text-danger">
+                                        {job.discretion}
+                                    </span>
                                 </div>
+
+                                {/* Location */}
+                                <p className="text-muted mb-2">
+                                    <CiLocationOn className="me-1" />
+                                    {job.companyLocation}
+                                </p>
+
+                                {/* Company */}
+                                <h6 className="text-primary fw-semibold mb-3">
+                                    {job.companyName}
+                                </h6>
+
+                                {/* Description */}
+                                <p className="text-muted small">
+                                    {job.jobDescription?.slice(0, 100)}...
+                                </p>
+
+                                {/* Footer */}
+                                <div className="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                    <small className="text-muted">
+                                        View opportunity
+                                    </small>
+
+                                    <Link 
+                                    className="btn btn-primary btn-sm rounded-pill px-3"
+                                    to={`/job-description/${job.id}`}
+                                    >
+                                        More Details
+                                    </Link>
+                                </div>
+
                             </div>
-                        )
-                    })
+                        </div>
+                    ))
                 }
             </div>
-
         </div>
     );
 }

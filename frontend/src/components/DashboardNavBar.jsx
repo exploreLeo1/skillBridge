@@ -1,23 +1,30 @@
-const DashboardNavBar = () => {
-    return ( 
-        <div>
-           <div className="d-flex justify-content-between">
-           <div>
-            <h5 className="text-light">
-                Welcome admin
-            </h5>
-            <p className="text-light">
-                Manage everythng from one pace
-            </p>
-           </div>
-           <div>
-            <button className="btn btn-dark">
-                Logout
-            </button>
-           </div>
-           </div>
+import { FaArrowRightToBracket } from "react-icons/fa6";
+
+
+
+const DashboardNav = () => {
+    return (
+        <div className="d-flex justify-content-between">
+            <div className="text-light">
+                <h5 >
+                    Welcome Admin
+                </h5> 
+                <p>
+                    Manage your account from a central place.
+                </p>
+            </div>
+            <div>
+                <button
+                className="btn"
+                style={{
+                    backgroundColor: "#D4621A"
+                }}
+                >
+                    <span className="me-3">Logout</span> <FaArrowRightToBracket />
+                </button>
+            </div>
         </div>
-     );
+    );
 }
- 
-export default DashboardNavBar;
+
+export default DashboardNav;

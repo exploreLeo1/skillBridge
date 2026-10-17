@@ -1,20 +1,22 @@
 {
-  "name": "skillbridge",
+  "name": "skillbridgeonline",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "server": "json-server --watch database/db.json ",
+    "server": "json-server --watch data/database.json --port 4000 ",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "json-server": "^1.0.0-beta.15",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-hot-toast": "^2.6.1",
     "react-icons": "^5.7.0",
     "react-router-dom": "^7.18.4"
   },
